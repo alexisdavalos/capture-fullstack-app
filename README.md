@@ -56,11 +56,6 @@ yarn or npm test
 - Explicitly photos for traveling. 
 - More professional instagram.
 
-## Back-end Developers
-APIS | RDBMS and Data Persistence | Authentication | Form Testing
-| --------------------- | ---------------------- | --------------------- | -------------------- |
-
-
 
 # API Endpoints
 Use Base URL: https://expatjournal-api.herokuapp.com
