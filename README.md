@@ -404,14 +404,14 @@ DELETE /api/posts/:id
 
 # Product Vision Document :tada:
 
-## exPat Journal
+## Capture
 
 #### Minimal Viable Product (MVP)
 
 1. User can visit site and see photos laid out in a grid
 2. Travelers can create, read, update, and delete stories and photos. (No ability to upload one's own photos for MVP)
 
-#### Stretch Goals (Keep in mind this project has to be accomplished in one week)
+#### Stretch Goals 
 1. Build an image uploader into the site to allow users the ability to upload their own assets. (This will require some work with a package called Drop Zone and a service called cloudinary).
 
 #### Proposal
@@ -419,10 +419,10 @@ DELETE /api/posts/:id
   * Building a photo-journal app for travelers that allows members to share experiences and anecdotes with fellow travel enthusiasts
 
 - Be as specific as possible; how does your app solve the problem?
-  * 
+  * Provides a place that feels nostalgic and yet is centered around a specific niche
+  
 - What is the mission statement? 
   * Travel Far, Travel Often
-
 
 #### Features
 - What features are required for your minimum viable product?
@@ -436,14 +436,14 @@ DELETE /api/posts/:id
 #### What do the top 3 similar apps do for their users?
 1. Main competitors are journal traveling/blogging apps
 * Generally provide graphic or written content and the ability to share travel experiences and photos (social media platforms) 
-
-
-
+- Instagram
+- Twitter
+- Tumblr
+- Facebook
 
 #### UX Design
 - What design system will you use?
   * Figma Tool to build out wire frames for design and user flow, color pallete etc.
-  * Styled Components
   
 ###### What is the URL to your wireframes?
  - Figma Wireframe: https://www.figma.com/file/TmGCmqf9QuajGwMTgaaetC/Capture?node-id=266%3A800
@@ -453,8 +453,7 @@ DELETE /api/posts/:id
   * Type system: TBD
   * Tool to reference: TBD
   * Typography choice: TBD
-  * Icon system:
-
+  * Icon system: TBD
 
 #### What will your user flow be?
 * Register, Login, Lands on the Dashboard, User Profile, Ability to Create Posts, Ability to Update/Delete/Modify, Logout
@@ -463,17 +462,16 @@ DELETE /api/posts/:id
 - What 3rd party frameworks/libraries are you considering using?
 
 **Frontend:**
-* FrontEnd
 - Axios
 - React
 - React-router
-- React-strap
-- Styled Components
+- Bulma.io
 - Redux
-* Backend
+**Backend:**
 -Express
 -Knex
 -Postgres
+-Jest
 
 #### Target Audience
 
@@ -481,10 +479,10 @@ DELETE /api/posts/:id
   * Travelers and bloggers that want to share their experiences
 
 - What feedback have you gotten from potential users?
-  * No Research done due to no design team.
+  * No Research yet.
 
 - Have you validated the problem and your solution with your target audience? How?
-  * No Research done due to no design team.
+  * No Research yet.
 
 #### Research
 _Research thoroughly before writing a single line of code. Solidify the features of your app conceptually before implementation. Spend the weekend researching so you can hit the ground running on Monday._
