@@ -1,10 +1,10 @@
 require("dotenv").config(); //access to .env variables
 // Update with your config settings.
 const database = {
-  client: 'pg',
+  client: process.env.CLIENT,
       connection: {
-          host: 'localhost',
-          database: 'dev'
+          host: process.env.LOCAL_HOST,
+          database: process.env.DEVELOPMENT_DB
       },
       migrations: {
           directory: './data/migrations'
@@ -19,28 +19,28 @@ module.exports = {
     ...database,
     connection: {
       port: process.env.POSTGRES_PORT,
-      database: 'dev',
-      user: process.env.USER,
-      password: process.env.PASSWORD
+      database: process.env.DEVELOPMENT_DB,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD
     },
-    tableName: 'knex_migrations'
+    tableName: process.env.MIGRATIONS_TABLE
   },
 
   testing: {
     ...database,
     connection: {
       port: process.env.POSTGRES_PORT,
-      database: 'test',
-      user: process.env.USER,
-      password: process.env.PASSWORD
+      database: process.env.TESTING_DB,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD
     },
-    tableName: 'knex_migrations'
+    tableName: process.env.MIGRATIONS_TABLE
   },
 
   production: {
     ...database,
     connection: process.env.DATABASE_URL,
-    tableName: 'knex_migrations'
+    tableName: process.env.MIGRATIONS_TABLE
   }
 
 };
