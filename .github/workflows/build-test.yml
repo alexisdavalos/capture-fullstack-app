@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
       env:
         DATABASE_URL: ${{ secrets.HEROKU_POSTGRESQL_GOLD_URL }}
-        MIGRATIONS_TABLE: ${{ MIGRATIONS_TABLE }}
+        MIGRATIONS_TABLE: ${{ secrets.MIGRATIONS_TABLE }}
         CI: true
     - run: npm install
       working-directory: ./server 
