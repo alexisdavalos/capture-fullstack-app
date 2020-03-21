@@ -6,15 +6,16 @@ const {closeConnection} = require('../utils/closeConnection.js')
 
 
 afterAll(async () =>{
-    await db('users').where({username: 'test'}).del()
     await db.destroy();
 })
  //initialize test user to register
- const user = {
-     username: 'test',
-     password: 'password'
+let user = {
+    username: "alexis",
+    password: "password",
+    first_name: "alexis",
+    last_name: "Toasdf",
+    email: "alesxis@gmail.com"
  }
- const token = ''
  
  describe("Auth Test Starts", () => {
      it("Should run the test", () => {
@@ -31,54 +32,55 @@ describe('Auth-Router Endpoints', () =>{
         //declare endpoint
         .post('/api/auth/register')
         //send a body
-        .send({
-            username: "test",
-            password: "password",
-            first_name: "John",
-            last_name: "Snow",
-            email: "johnsnow@gmail.com"
-        })
+        .send(user)
         //does it return the expected status code?
         expect(res.status).toBe(200);
         //does it return the expected data format?
         expect(res.type).toMatch(/json/)
         //does it return the expected data?
-        expect(res.body[0].username).toBe('test'); 
+        expect(res.body[0].username).toBe('alexis');
+    })
 
+    test('Generate JWT Test', async () =>{
+        
+        const res = await request(server)
+        .post('/api/auth/login')
+        //send seed user to test
+        .send(user)
+
+        //does it return the expected status code?
+        expect(res.status).toBe(200)
+        //does it return the expected data format?
+        expect(res.type).toMatch(/json/)
+        //does it return the expected data?
+        expect(res.body.message).toBe('Welcome alexis!')
+
+        //Decode Token from response body
+        const decoded = jwt.decode(res.body.token);
+
+        //is the user signed to the token?
+        expect(decoded.username).toBe('alexis')        
     })
 
     test('POST to /api/auth/login', async () =>{
         //initiate a request to the server
         const res = await request(server)
         .post('/api/auth/login')
+        //send registered user from previous test
         .send(user)
         //does it return the expected status code?
         expect(res.status).toBe(200)
         //does it return the expected data format?
         expect(res.type).toMatch(/json/)
         //does it return the expected data?
-        expect(res.body.message).toBe('Welcome test!')
-
-    })
-    test('Generate JWT Test', async () =>{
+        expect(res.body.message).toBe('Welcome alexis!')
         
-        const res = await request(server)
-        .post('/api/auth/login')
-        .send(user)
+        //delete user with id
+        const del = await request(server)
+        .delete(`/api/users/${res.body.id}`)
+        .set("authorization", res.body.token)
+        expect(del.body.success).toBe('deleted')
 
-        //does it return the expected status code?
-        expect(res.status).toBe(200)
-        //does it return the expected data format?
-        expect(res.type).toMatch(/json/)
-        //does it return the expected data?
-        expect(res.body.message).toBe('Welcome test!')
-
-        //Decode Token from response body
-        const decoded = jwt.decode(res.body.token);
-
-        //is the user signed to the token?
-        expect(decoded.username).toBe('test')
-        
     })
 
 })

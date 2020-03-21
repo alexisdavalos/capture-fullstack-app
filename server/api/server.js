@@ -18,9 +18,9 @@ server.use(cors()); //node module
 server.use(helmet()); //node module
 
 //routes
-server.use('/api/users', logger, restricted, usersRouter);
-server.use('/api/auth', logger, authRouter);
-server.use('/api/posts', logger, restricted, postsRouter);
+server.use('/api/users', restricted, usersRouter);
+server.use('/api/auth', authRouter);
+server.use('/api/posts', restricted, postsRouter);
 
 //sanity check
 server.get('/', logger, (req, res) =>{
