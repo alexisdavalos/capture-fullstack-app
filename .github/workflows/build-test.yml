@@ -27,6 +27,7 @@ jobs:
       env:
         DATABASE_URL: ${{ secrets.HEROKU_POSTGRESQL_GOLD_URL }}
         MIGRATIONS_TABLE: ${{ secrets.MIGRATIONS_TABLE }}
+        CLIENT: ${{ secrets.CLIENT }}
         CI: true
     - run: npm install
       working-directory: ./server 
