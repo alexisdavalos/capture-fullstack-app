@@ -7,6 +7,7 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "test": "cross-env NODE_ENV=testing jest --watch=all",
+    "stage": "cross-env NODE_ENV=staging jest --watch=all",
     "coverage": "CI=true npm test -- --coverage --watchAll=true"
   },
   "jest":{
