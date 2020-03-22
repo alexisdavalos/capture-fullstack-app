@@ -36,11 +36,13 @@ module.exports = {
     },
     tableName: process.env.MIGRATIONS_TABLE
   },
+
   staging: {
     ...database,
     connection: process.env.HEROKU_POSTGRESQL_GOLD_URL,
     tableName: process.env.MIGRATIONS_TABLE
   },
+  
   production: {
     ...database,
     connection: process.env.DATABASE_URL,
