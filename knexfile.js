@@ -1,7 +1,7 @@
 require("dotenv").config(); //access to .env variables
 // Update with your config settings.
 const database = {
-  client: 'pg',
+  client: process.env.CLIENT || 'pg',
   connection: {
     host: process.env.LOCAL_HOST,
     database: process.env.DEVELOPMENT_DB
