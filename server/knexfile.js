@@ -1,7 +1,7 @@
 require("dotenv").config(); //access to .env variables
 // Update with your config settings.
 const database = {
-  client: process.env.CLIENT,
+  client: 'pg',
   connection: {
     host: process.env.LOCAL_HOST,
     database: process.env.DEVELOPMENT_DB
@@ -42,7 +42,7 @@ module.exports = {
     connection: process.env.HEROKU_POSTGRESQL_GOLD_URL,
     tableName: process.env.MIGRATIONS_TABLE
   },
-  
+
   production: {
     ...database,
     connection: process.env.DATABASE_URL,
