@@ -39,7 +39,7 @@ module.exports = {
 
   staging: {
     ...database,
-    connection: process.env.HEROKU_POSTGRESQL_GOLD_URL,
+    connection: process.env.DATABASE_URL,
     tableName: process.env.MIGRATIONS_TABLE
   },
 
