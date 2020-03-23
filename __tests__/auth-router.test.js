@@ -10,11 +10,11 @@ afterAll(async () =>{
 })
  //initialize test user to register
 let user = {
-    username: "alexis",
-    password: "password",
-    first_name: "alexis",
-    last_name: "Toasdf",
-    email: "alesxis@gmail.com"
+    username: "auth",
+    password: "test",
+    first_name: "auth",
+    last_name: "test",
+    email: "auth_test@gmail.com"
  }
  
  describe("Auth Test Starts", () => {
@@ -38,7 +38,7 @@ describe('Auth-Router Endpoints', () =>{
         //does it return the expected data format?
         expect(res.type).toMatch(/json/)
         //does it return the expected data?
-        expect(res.body[0].username).toBe('alexis');
+        expect(res.body[0].username).toBe('auth');
     })
 
     test('Generate JWT Test', async () =>{
@@ -53,13 +53,13 @@ describe('Auth-Router Endpoints', () =>{
         //does it return the expected data format?
         expect(res.type).toMatch(/json/)
         //does it return the expected data?
-        expect(res.body.message).toBe('Welcome alexis!')
+        expect(res.body.message).toBe('Welcome auth!')
 
         //Decode Token from response body
         const decoded = jwt.decode(res.body.token);
 
         //is the user signed to the token?
-        expect(decoded.username).toBe('alexis')        
+        expect(decoded.username).toBe('auth')        
     })
 
     test('POST to /api/auth/login', async () =>{
@@ -73,7 +73,7 @@ describe('Auth-Router Endpoints', () =>{
         //does it return the expected data format?
         expect(res.type).toMatch(/json/)
         //does it return the expected data?
-        expect(res.body.message).toBe('Welcome alexis!')
+        expect(res.body.message).toBe('Welcome auth!')
         
         //delete user with id
         const del = await request(server)
