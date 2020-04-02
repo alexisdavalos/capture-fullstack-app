@@ -1,6 +1,7 @@
 const request = require('supertest'); //initiates supertest
 const server = require('../api/server.js') // initiates server
 const db = require('../data/dbConfig.js');  // initiates db
+//swap db out with mock object
 const jwt = require('jsonwebtoken')
 const {closeConnection} = require('../utils/closeConnection.js')
 
