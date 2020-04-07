@@ -4,7 +4,7 @@
   "description": "These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.",
   "main": "index.js",
   "scripts": {
-    "build": "npm --prefix ./server"
+    "heroku-prebuild": "--prefix ./server"
   },
   "repository": {
     "type": "git",
